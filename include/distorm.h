@@ -34,7 +34,7 @@ This library is licensed under the BSD license. See the file COPYING.
 #endif
 
 #ifndef _MSC_VER
-#include <stdint.h>
+#include <linux/types.h>
 #else
 /* Since MSVC < 2010 isn't shipped with stdint.h,
  * here are those from MSVC 2017, which also match

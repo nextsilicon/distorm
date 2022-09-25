@@ -15,7 +15,7 @@ This library is licensed under the BSD license. See the file COPYING.
 /* diStorm version number. */
 #define __DISTORMV__ 0x030503
 
-#include <string.h> /* memset, memcpy - can be easily self implemented for libc independency. */
+#include <linux/string.h>
 
 #include "../include/distorm.h"
 
@@ -25,7 +25,7 @@ This library is licensed under the BSD license. See the file COPYING.
  * This macro should be defined from compiler command line flags, e.g: -DSUPPORT_64BIT_OFFSET
  * Note: make sure that the caller (library user) defines it too!
  */
-/* #define SUPPORT_64BIT_OFFSET */
+#define SUPPORT_64BIT_OFFSET
 
 /*
  * If you compile diStorm as a dynamic library (.dll or .so) file, make sure you uncomment the next line.
@@ -33,6 +33,7 @@ This library is licensed under the BSD license. See the file COPYING.
  * For example, this macro is being set for compiling diStorm as a .dll for Python with CTypes.
  */
 /* #define DISTORM_DYNAMIC */
+#define DISTORM_STATIC
 
 /*
  * If DISTORM_LIGHT is defined, everything involved in formatting the instructions
@@ -43,6 +44,7 @@ This library is licensed under the BSD license. See the file COPYING.
  * Note: it should be either set in the preprocessor definitions manually or in command line -D switch.
  * #define DISTORM_LIGHT
  */
+#define DISTORM_LIGHT
 
 /*
  * diStorm now supports little/big endian CPU's.
@@ -53,7 +55,7 @@ This library is licensed under the BSD license. See the file COPYING.
 /* These macros are used in order to make the code portable. */
 #ifdef __GNUC__
 
-#include <stdint.h>
+#include <linux/types.h>
 
 #define _DLLEXPORT_
 #define _FASTCALL_
