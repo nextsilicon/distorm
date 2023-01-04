@@ -464,7 +464,7 @@ _DecodeResult decode_internal(_CodeInfo* _ci, int supportOldIntr, _DInst result[
 	ci.addrMask = (_OffsetType)-1;
 
 #ifdef DISTORM_LIGHT
-	supportOldIntr; /* Unreferenced. */
+	(void)supportOldIntr; /* Unreferenced. */
 
 	/*
 	 * Only truncate address if we are using the decompose interface.
